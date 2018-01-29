@@ -84,9 +84,14 @@
     entity_id: binary_sensor.ecolink_motion_detector_sensor
     to: 'off'
   condition:
-    - condition: state
-      entity_id: scene.bath
-      state: 'off'
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: scene.bright
+          state: 'on'
+        - condition: state
+          entity_id: scene.night
+          state: 'on'
   action:
     service: homeassistant.turn_off
     entity_id:

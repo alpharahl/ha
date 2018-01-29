@@ -26,4 +26,4 @@ bathroom:
     - scene.bath
     - scene.bright
     - scene.night
-    - scene.off
+    - scene.bathroomoff
