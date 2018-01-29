@@ -1,50 +1,6 @@
-- alias: 'Turn off lights when tv playing'
-  trigger:
-    platform: state
-    entity_id: media_player.roku_yr00hn008014
-    to: 'playing'
-  condition:
-    - condition: sun
-      after: sunset
-      after_offset: "-1:00:00"
-    - condition: sun
-      before: sunrise
-      before_offset: "-1:00:00"
-  action:
-    service: homeassistant.turn_off
-    entity_id: group.tv_lights
-- alias: 'Turn on lights when tv stops'
-  trigger:
-    platform: state
-    entity_id: media_player.roku_yr00hn008014
-    from: 'playing'
-  condition:
-    - condition: sun
-      after: sunset
-      after_offset: "-1:00:00"
-    - condition: sun
-      before: sunrise  
-  action:
-    service: homeassistant.turn_on
-    entity_id: group.tv_lights
-- alias: 'Turn on downstairs lights when motion detected'
-  trigger:
-    platform: state
-    entity_id: switch.ge_12722_onoff_relay_switch_switch_2
-    to: 'on'
-  action:
-    service: homeassistant.turn_on
-    entity_id: group.downstairs
 
-- alias: 'Turn off downstairs lights when motion stopped'
-  trigger:
-    platform: state
-    entity_id: switch.ge_12722_onoff_relay_switch_switch_2
-    to: 'off'
-  action:
-    service: homeassistant.turn_off
-    entity_id: group.downstairs
-
+# Master Bedroom
+#   Closet
 - alias: 'Turn on master closet lights when door opens'
   trigger:
     platform: state
@@ -53,6 +9,7 @@
   action:
     service: homeassistant.turn_on
     entity_id: switch.ge_12722_onoff_relay_switch_switch_4
+
 - alias: 'Turn off master closet lights when door closes'
   trigger:
     platform: state
@@ -62,6 +19,7 @@
     service: homeassistant.turn_off
     entity_id: switch.ge_12722_onoff_relay_switch_switch_4
 
+# Foyer
 - alias: 'Turn on downstairs lights when front door opens'
   trigger:
     platform: state
@@ -101,3 +59,62 @@
   action:
     service: homeassistant.turn_off
     entity_id: group.downstairs
+
+# Aftons Bathroom
+- alias: 'Turn on bathroom lights during the day'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.Aftons_Bathroom
+    to: 'on'
+  condition:
+    # When bath scene is not Closet
+    # during the day
+    - condition: state
+      entity_id: scene.bath
+      state: 'off'
+    - condition: time
+      after: '12:00:00'
+      before: '22:00:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: scene.bright
+- alias: 'Turn off bathroom lights when no motion'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.Aftons_Bathroom
+    to: 'off'
+  condition:
+    - condition: state
+      entity_id: scene.bath
+      state: 'off'
+  action:
+    service: homeassistant.turn_off
+    entities:
+      - scene.bright
+      - scene.night
+- alias: 'Turn on bathroom lights at night'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.Aftons_Bathroom
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: scene.bath
+      state: 'off'
+    - condition: time
+      before: '12:00:00'
+      after: '22:00:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: scene.night
+- alias: 'Turn off bath scene'
+  trigger:
+    platform: state
+    entity_id: scene.bath
+    state: 'on'
+    for:
+      hours: 1
+      minutes: 15
+  action:
+    service: homeassistant.turn_off
+    entity_id: scene.bath
