@@ -95,3 +95,9 @@ scene:
       group.bathroom_vanity:
         state: on
         brightness: 255
+  - name: off
+    entities:
+      light.abathtub:
+        state: off
+      group.bathroom_vanity:
+        state: off
