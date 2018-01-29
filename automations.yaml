@@ -1,0 +1,103 @@
+- alias: 'Turn off lights when tv playing'
+  trigger:
+    platform: state
+    entity_id: media_player.roku_yr00hn008014
+    to: 'playing'
+  condition:
+    - condition: sun
+      after: sunset
+      after_offset: "-1:00:00"
+    - condition: sun
+      before: sunrise
+      before_offset: "-1:00:00"
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.tv_lights
+- alias: 'Turn on lights when tv stops'
+  trigger:
+    platform: state
+    entity_id: media_player.roku_yr00hn008014
+    from: 'playing'
+  condition:
+    - condition: sun
+      after: sunset
+      after_offset: "-1:00:00"
+    - condition: sun
+      before: sunrise  
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.tv_lights
+- alias: 'Turn on downstairs lights when motion detected'
+  trigger:
+    platform: state
+    entity_id: switch.ge_12722_onoff_relay_switch_switch_2
+    to: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.downstairs
+
+- alias: 'Turn off downstairs lights when motion stopped'
+  trigger:
+    platform: state
+    entity_id: switch.ge_12722_onoff_relay_switch_switch_2
+    to: 'off'
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.downstairs
+
+- alias: 'Turn on master closet lights when door opens'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ecolink_unknown_type0004_id0002_sensor
+    to: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.ge_12722_onoff_relay_switch_switch_4
+- alias: 'Turn off master closet lights when door closes'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ecolink_unknown_type0004_id0002_sensor
+    to: 'off'
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.ge_12722_onoff_relay_switch_switch_4
+
+- alias: 'Turn on downstairs lights when front door opens'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ecolink_unknown_type0004_id0002_sensor_2
+    to: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.downstairs
+
+- alias: 'Turn on downstairs lights when garage door opens'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ecolink_unknown_type0004_id0002_sensor_3
+    to: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.downstairs
+
+- alias: 'Turn off downstairs lights 5 min after front door closes'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ecolink_unknown_type0004_id0002_sensor_2
+    to: 'off'
+    for:
+      minutes: 4
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.downstairs
+
+- alias: 'Turn off downstairs lights 5 min after garage door closes'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ecolink_unknown_type0004_id0002_sensor_3
+    to: 'off'
+    for:
+      minutes: 5
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.downstairs

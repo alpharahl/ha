@@ -1,0 +1,28 @@
+downstairs:
+  view: yes
+  entities:
+    - switch.ge_12722_onoff_relay_switch_switch_3
+    - switch.ge_12722_onoff_relay_switch_switch_2
+tv_lights:
+  entities:
+    - light.ge_12724_3way_dimmer_switch_level
+    - switch.ge_12722_onoff_relay_switch_switch_5
+bedroom:
+  view: yes
+  entities:
+    - light.bedroom_1
+    - light.bedroom_2
+    - light.hue_color_lamp_1
+    - light.hue_color_lamp_2
+    - light.hue_color_lamp_3
+bathroom_vanity:
+  entities:
+    - light.avanity1
+    - light.avanity2
+    - light.avanity3
+bathroom:
+  view: yes
+  entities:
+    - scene.bath
+    - scene.bright
+    - scene.night

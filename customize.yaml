@@ -1,0 +1,92 @@
+light.ge_12724_3way_dimmer_switch_level:
+  friendly_name: Living Room
+  new_entity_id: light.living_room
+switch.ge_12722_onoff_relay_switch_switch:
+  friendly_name: Main Level Bathroom
+  new_entity_id: switch.main_level_bathroom
+switch.ge_12722_onoff_relay_switch_switch_3:
+  friendly_name: Foyer
+  new_entity_id: switch.foyer
+switch.ge_12722_onoff_relay_switch_switch_2:
+  friendly_name: Lower Stairs
+  new_entity_id: switch.lower_stairs
+sensor.ecolink_motion_detector_alarm_level_2:
+  hidden: true
+sensor.ecolink_motion_detector_alarm_level:
+  hidden: true
+sensor.ecolink_motion_detector_alarm_type_2:
+  hidden: true
+sensor.ecolink_motion_detector_alarm_type:
+  hidden: true
+sensor.ecolink_motion_detector_burglar_2:
+  hidden: true
+sensor.ecolink_motion_detector_burglar:
+  hidden: true
+sensor.ecolink_motion_detector_power_management:
+  hidden: true
+sensor.ecolink_motion_detector_power_management_2:
+  hidden: true
+sensor.ecolink_motion_detector_sourcenodeid:
+  hidden: true
+sensor.ecolink_motion_detector_sourcenodeid_2:
+  hidden: true
+binary_sensor.ecolink_motion_detector_sensor:
+  friendly_name: Downstairs Motion
+  new_entity_id: binary_sensor.downstairs_motion
+switch.ge_12722_onoff_relay_switch_switch_5:
+  friendly_name: Upper Stairs
+  new_entity_id: switch.upper_stairs
+switch.ge_12722_onoff_relay_switch_switch_4:
+  friendly_name: Master Closet
+  new_entity_id: switch.master_closet
+light.ge_12724_3way_dimmer_switch_level_2:
+  friendly_name: Master Bathroom
+  new_entity_id: light.master_bathroom
+binary_sensor.ecolink_unknown_type0004_id0002_sensor:
+  friendly_name: Master Closet Door
+  new_entity_id: binary_sensor.master_closet_door
+binary_sensor.ecolink_unknown_type0004_id0002_sensor_2:
+  friendly_name: Front Door
+  new_entity_id: binary_sensor.front_door
+binary_sensor.ecolink_unknown_type0004_id0002_sensor_3:
+  friendly_name: Garage Door
+  new_entity_id: binary_sensor.garage_door
+sensor.ecolink_unknown_type0004_id0002_access_control:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_access_control_2:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_access_control_3:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_alarm_level_3:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_alarm_level:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_alarm_level_2:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_alarm_type_2:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_alarm_type:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_alarm_type_3:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_burglar_2:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_burglar:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_burglar_3:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_power_management:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_power_management_3:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_power_management_2:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_sourcenodeid_3:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_sourcenodeid:
+  hidden: true
+sensor.ecolink_unknown_type0004_id0002_sourcenodeid_2:
+  hidden: true
+binary_sensor.ecolink_motion_detector_sensor_2:
+  friendly_name: Master Bathroom Motion
+  new_entity_id: binary_sensor.master_bathroom
