@@ -111,7 +111,7 @@
   trigger:
     platform: state
     entity_id: scene.bath
-    state: 'on'
+    to: 'on'
     for:
       hours: 1
       minutes: 15
