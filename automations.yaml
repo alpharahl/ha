@@ -89,7 +89,7 @@
       state: 'off'
   action:
     service: homeassistant.turn_off
-    entities:
+    entity_id:
       - scene.bright
       - scene.night
 - alias: 'Turn on bathroom lights at night'
