@@ -64,7 +64,7 @@
 - alias: 'Turn on bathroom lights during the day'
   trigger:
     platform: state
-    entity_id: binary_sensor.aftons_bathroom
+    entity_id: binary_sensor.ecolink_motion_detector_sensor_6_0
     to: 'on'
   # condition:
     # When bath scene is not Closet
@@ -81,7 +81,7 @@
 - alias: 'Turn off bathroom lights when no motion'
   trigger:
     platform: state
-    entity_id: binary_sensor.aftons_bathroom
+    entity_id: binary_sensor.ecolink_motion_detector_sensor_6_0
     to: 'off'
   # condition:
   #   - condition: or
@@ -100,7 +100,7 @@
 - alias: 'Turn on bathroom lights at night'
   trigger:
     platform: state
-    entity_id: binary_sensor.aftons_bathroom
+    entity_id: binary_sensor.ecolink_motion_detector_sensor_6_0
     to: 'on'
   # condition:
   #   - condition: state
