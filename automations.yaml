@@ -66,15 +66,15 @@
     platform: state
     entity_id: binary_sensor.aftons_bathroom
     to: 'on'
-  condition:
+  # condition:
     # When bath scene is not Closet
     # during the day
-    - condition: state
-      entity_id: scene.bath
-      state: 'off'
-    - condition: time
-      after: '12:00:00'
-      before: '22:00:00'
+    # - condition: state
+    #   entity_id: scene.bath
+    #   state: 'off'
+    # - condition: time
+    #   after: '12:00:00'
+    #   before: '22:00:00'
   action:
     service: homeassistant.turn_on
     entity_id: scene.bright
@@ -83,15 +83,15 @@
     platform: state
     entity_id: binary_sensor.aftons_bathroom
     to: 'off'
-  condition:
-    - condition: or
-      conditions:
-        - condition: state
-          entity_id: scene.bright
-          state: 'on'
-        - condition: state
-          entity_id: scene.night
-          state: 'on'
+  # condition:
+  #   - condition: or
+  #     conditions:
+  #       - condition: state
+  #         entity_id: scene.bright
+  #         state: 'on'
+  #       - condition: state
+  #         entity_id: scene.night
+  #         state: 'on'
   action:
     service: homeassistant.turn_off
     entity_id:
@@ -102,13 +102,13 @@
     platform: state
     entity_id: binary_sensor.aftons_bathroom
     to: 'on'
-  condition:
-    - condition: state
-      entity_id: scene.bath
-      state: 'off'
-    - condition: time
-      before: '12:00:00'
-      after: '22:00:00'
+  # condition:
+  #   - condition: state
+  #     entity_id: scene.bath
+  #     state: 'off'
+  #   - condition: time
+  #     before: '12:00:00'
+  #     after: '22:00:00'
   action:
     service: homeassistant.turn_on
     entity_id: scene.night
